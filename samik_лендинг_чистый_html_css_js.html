@@ -1,0 +1,416 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SAMIK — Электросамокаты</title>
+  <meta name="description" content="Электросамокаты SAMIK — мощность, дальность, надежность. Модели M365 и V3 Max.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            samik: {
+              green: '#18e06f',
+            }
+          },
+          fontFamily: { sans: ['Inter', 'ui-sans-serif', 'system-ui'] }
+        }
+      }
+    }
+  </script>
+  <style>
+    html { scroll-behavior: smooth; }
+    /* простая тень для карточек */
+    .card { box-shadow: 0 10px 30px rgba(0,0,0,.35); }
+  </style>
+</head>
+<body class="bg-black text-white font-sans">
+  <!-- NAV -->
+  <header class="sticky top-0 z-40 backdrop-blur bg-black/60 border-b border-white/10">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-3 flex items-center justify-between">
+      <a href="#top" class="group">
+        <div class="text-2xl font-extrabold tracking-wider text-samik-green">SAMIK</div>
+        <div class="text-xs uppercase text-white/60 -mt-1">электросамокаты</div>
+      </a>
+      <nav class="hidden md:flex gap-6 text-sm text-white/90">
+        <a href="#models" class="hover:text-white">Модели</a>
+        <a href="#features" class="hover:text-white">Преимущества</a>
+        <a href="#specs" class="hover:text-white">Характеристики</a>
+        <a href="#gallery" class="hover:text-white">Галерея</a>
+        <a href="#faq" class="hover:text-white">FAQ</a>
+        <a href="#contact" class="hover:text-white">Контакты</a>
+      </nav>
+      <a href="#buy" class="hidden sm:inline-flex items-center gap-2 rounded-xl px-4 py-2 font-medium bg-white text-black hover:bg-white/90">Купить</a>
+      <button id="menuBtn" class="md:hidden p-2 rounded-lg border border-white/10" aria-label="Открыть меню">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+    </div>
+    <div id="mobileNav" class="hidden md:hidden border-t border-white/10 bg-black">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-3 grid gap-2 text-sm text-white/90">
+        <a href="#models" class="py-1 hover:text-white">МОДЕЛИ</a>
+        <a href="#features" class="py-1 hover:text-white">ПРЕИМУЩЕСТВА</a>
+        <a href="#specs" class="py-1 hover:text-white">ХАРАКТЕРИСТИКИ</a>
+        <a href="#gallery" class="py-1 hover:text-white">ГАЛЕРЕЯ</a>
+        <a href="#faq" class="py-1 hover:text-white">FAQ</a>
+        <a href="#contact" class="py-1 hover:text-white">КОНТАКТЫ</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section id="top" class="relative overflow-hidden" style="background: radial-gradient(1200px 600px at 80% -10%, #18e06f22, transparent), linear-gradient(180deg, #0a0a0a, #000)">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 md:py-24 grid md:grid-cols-2 gap-10 items-center">
+      <div class="space-y-6">
+        <div class="inline-flex items-center gap-2 rounded-full border border-white/10 bg-black/40 px-3 py-1 text-xs text-white/70">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#18e06f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 19 21 12 17 5 21 12 2"></polygon></svg>
+          Новая линейка 2025
+        </div>
+        <h1 class="text-4xl md:text-6xl font-extrabold leading-tight">Электросамокаты <span class="text-samik-green">SAMIK</span></h1>
+        <p class="text-white/80 text-base md:text-lg max-w-xl">Мощные, надёжные и стильные. Для города и приключений. Безопасность, скорость и комфорт — в одном бренде.</p>
+        <div class="flex flex-wrap gap-3">
+          <a href="#models" class="rounded-xl px-5 py-3 bg-white text-black font-semibold hover:bg-white/90">Смотреть модели</a>
+          <a href="#contact" class="rounded-xl px-5 py-3 border border-white/20 text-white hover:border-white/40">Связаться</a>
+        </div>
+        <div class="flex items-center gap-6 pt-2 text-white/70 text-sm">
+          <div class="flex items-center gap-2"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#18e06f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 L3 14 H12 L11 22 L21 10 H12 Z"/></svg> Быстрая доставка</div>
+          <div class="flex items-center gap-2"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#18e06f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> Гарантия 12 мес.</div>
+        </div>
+      </div>
+      <div class="relative">
+        <div class="absolute -top-10 -right-10 w-72 h-72 md:w-96 md:h-96 rounded-full blur-3xl" style="background:#18e06f33"></div>
+        <div class="relative bg-gradient-to-b from-white/10 to-transparent rounded-3xl p-3 border border-white/10 card">
+          <div class="aspect-[16/10] w-full rounded-2xl bg-black flex items-center justify-center overflow-hidden">
+            <!-- Замените на реальный рендер самоката -->
+            <img src="/images/hero-scooter.png" alt="SAMIK scooter" class="w-full h-full object-cover"/>
+          </div>
+          <div class="mt-3 grid grid-cols-3 gap-2 text-xs text-white/70">
+            <div class="rounded-lg border border-white/10 bg-black/40 p-2 flex items-center gap-2"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 L3 14 H12 L11 22 L21 10 H12 Z"/></svg> до 45 км/ч</div>
+            <div class="rounded-lg border border-white/10 bg-black/40 p-2 flex items-center gap-2"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="10" rx="2" ry="2"></rect><line x1="6" y1="11" x2="6" y2="13"></line><line x1="10" y1="11" x2="10" y2="13"></line><line x1="14" y1="11" x2="14" y2="13"></line></svg> до 80 км</div>
+            <div class="rounded-lg border border-white/10 bg-black/40 p-2 flex items-center gap-2"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> IP54</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MODELS -->
+  <section id="models" class="py-16 bg-gradient-to-b from-black to-[#070707]">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-wrap items-end justify-between gap-4">
+        <div>
+          <h2 class="text-3xl md:text-4xl font-bold">Модели SAMIK</h2>
+          <p class="text-white/70 mt-2">Выберите свой стиль езды — от городской классики до дальнобоя.</p>
+        </div>
+      </div>
+
+      <div class="mt-8 grid lg:grid-cols-2 gap-8 items-start">
+        <!-- M365 -->
+        <div class="rounded-3xl border border-white/10 p-3 bg-gradient-to-b from-white/10 to-transparent">
+          <div class="aspect-[16/10] w-full rounded-2xl overflow-hidden bg-black">
+            <img src="/images/samik-m365-hero.png" alt="SAMIK M365" class="w-full h-full object-cover"/>
+          </div>
+        </div>
+        <div class="space-y-6">
+          <div>
+            <div class="text-white/60 text-sm">Городская классика</div>
+            <h3 class="text-2xl md:text-3xl font-bold">SAMIK M365</h3>
+          </div>
+          <ul class="grid sm:grid-cols-2 gap-3">
+            <li class="flex items-center gap-2 rounded-xl border border-white/10 bg-black/40 p-3 text-white/80">
+              <span class="text-samik-green">⚡</span>
+              Мотор 350–500 Вт
+            </li>
+            <li class="flex items-center gap-2 rounded-xl border border-white/10 bg-black/40 p-3 text-white/80">
+              <span class="text-samik-green">🚀</span>
+              Скорость до 30–35 км/ч
+            </li>
+            <li class="flex items-center gap-2 rounded-xl border border-white/10 bg-black/40 p-3 text-white/80">
+              <span class="text-samik-green">🔋</span>
+              До 30–40 км пробега
+            </li>
+          </ul>
+          <div class="rounded-2xl border border-white/10 p-4 bg-black/50">
+            <h4 class="font-semibold mb-3">Ключевые характеристики</h4>
+            <dl class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-white/80">
+              <div class="flex items-center justify-between border-b border-white/10 py-2"><dt class="text-white/60">Мощность</dt><dd>350–500 Вт</dd></div>
+              <div class="flex items-center justify-between border-b border-white/10 py-2"><dt class="text-white/60">Скорость</dt><dd>до 35 км/ч</dd></div>
+              <div class="flex items-center justify-between border-b border-white/10 py-2"><dt class="text-white/60">Запас хода</dt><dd>до 40 км</dd></div>
+              <div class="flex items-center justify-between border-b border-white/10 py-2"><dt class="text-white/60">Тормоза</dt><dd>дисковые + рекуперация</dd></div>
+              <div class="flex items-center justify-between border-b border-white/10 py-2"><dt class="text-white/60">Вес</dt><dd>12–13 кг</dd></div>
+            </dl>
+            <div class="mt-4 flex items-center justify-between">
+              <div class="text-white/90"><span class="text-xl font-bold text-samik-green">от 29 990 ₽</span></div>
+              <a href="#buy" class="inline-flex items-center gap-2 rounded-xl px-5 py-3 bg-white text-black font-semibold hover:bg-white/90">Купить</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-10 grid lg:grid-cols-2 gap-8 items-start">
+        <!-- V3 Max -->
+        <div class="rounded-3xl border border-white/10 p-3 bg-gradient-to-b from-white/10 to-transparent order-2 lg:order-1">
+          <div class="aspect-[16/10] w-full rounded-2xl overflow-hidden bg-black">
+            <img src="/images/samik-v3max-hero.png" alt="SAMIK V3 Max" class="w-full h-full object-cover"/>
+          </div>
+        </div>
+        <div class="space-y-6 order-1 lg:order-2">
+          <div>
+            <div class="text-white/60 text-sm">Сила и дальность</div>
+            <h3 class="text-2xl md:text-3xl font-bold">SAMIK V3 Max 18 Ah</h3>
+          </div>
+          <ul class="grid sm:grid-cols-2 gap-3">
+            <li class="flex items-center gap-2 rounded-xl border border-white/10 bg-black/40 p-3 text-white/80"><span class="text-samik-green">⚡</span> Мотор 500 Вт</li>
+            <li class="flex items-center gap-2 rounded-xl border border-white/10 bg-black/40 p-3 text-white/80"><span class="text-samik-green">🚀</span> Скорость до 45 км/ч</li>
+            <li class="flex items-center gap-2 rounded-xl border border-white/10 bg-black/40 p-3 text-white/80"><span class="text-samik-green">🔋</span> До 80 км (PAS)</li>
+          </ul>
+          <div class="rounded-2xl border border-white/10 p-4 bg-black/50">
+            <h4 class="font-semibold mb-3">Ключевые характеристики</h4>
+            <dl class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-white/80">
+              <div class="flex items-center justify-between border-b border-white/10 py-2"><dt class="text-white/60">Мощность</dt><dd>500 Вт</dd></div>
+              <div class="flex items-center justify-between border-b border-white/10 py-2"><dt class="text-white/60">Скорость</dt><dd>до 45 км/ч</dd></div>
+              <div class="flex items-center justify-between border-b border-white/10 py-2"><dt class="text-white/60">Аккумулятор</dt><dd>18 Ah</dd></div>
+              <div class="flex items-center justify-between border-b border-white/10 py-2"><dt class="text-white/60">Запас хода</dt><dd>до 80 км (PAS)</dd></div>
+              <div class="flex items-center justify-between border-b border-white/10 py-2"><dt class="text-white/60">Тормоза</dt><dd>дисковые</dd></div>
+              <div class="flex items-center justify-between border-b border-white/10 py-2"><dt class="text-white/60">Вес</dt><dd>~18 кг</dd></div>
+            </dl>
+            <div class="mt-4 flex items-center justify-between">
+              <div class="text-white/90"><span class="text-xl font-bold text-samik-green">от 49 990 ₽</span></div>
+              <a href="#buy" class="inline-flex items-center gap-2 rounded-xl px-5 py-3 bg-white text-black font-semibold hover:bg-white/90">Купить</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section id="features" class="py-16 border-y border-white/10 bg-[#0b0b0b]">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl md:text-4xl font-bold">Почему SAMIK</h2>
+      <p class="text-white/70 mt-2">Сосредоточены на реальной надёжности и удовольствии от езды.</p>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-8">
+        <div class="rounded-2xl border border-white/10 bg-black/40 p-5">
+          <div class="w-10 h-10 rounded-xl flex items-center justify-center mb-3 bg-[#18e06f22] text-samik-green">🛡️</div>
+          <div class="font-semibold">Гарантия 12 мес.</div>
+          <div class="text-white/70 text-sm mt-1">Официальная гарантия и сервисная поддержка SAMIK.</div>
+        </div>
+        <div class="rounded-2xl border border-white/10 bg-black/40 p-5">
+          <div class="w-10 h-10 rounded-xl flex items-center justify-center mb-3 bg-[#18e06f22] text-samik-green">🛠️</div>
+          <div class="font-semibold">Обслуживание</div>
+          <div class="text-white/70 text-sm mt-1">Доступные расходники и быстрая диагностика.</div>
+        </div>
+        <div class="rounded-2xl border border-white/10 bg-black/40 p-5">
+          <div class="w-10 h-10 rounded-xl flex items-center justify-center mb-3 bg-[#18e06f22] text-samik-green">🚀</div>
+          <div class="font-semibold">Производительность</div>
+          <div class="text-white/70 text-sm mt-1">Мощные моторы, усиленная рама, плавный разгон.</div>
+        </div>
+        <div class="rounded-2xl border border-white/10 bg-black/40 p-5">
+          <div class="w-10 h-10 rounded-xl flex items-center justify-center mb-3 bg-[#18e06f22] text-samik-green">🔋</div>
+          <div class="font-semibold">Дальность</div>
+          <div class="text-white/70 text-sm mt-1">Ёмкие батареи и продуманная BMS-система.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SPECS TABLE -->
+  <section id="specs" class="py-16 bg-black">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="flex items-end justify-between flex-wrap gap-4">
+        <div>
+          <h2 class="text-3xl md:text-4xl font-bold">Технические характеристики</h2>
+          <p class="text-white/70 mt-2">Детально по моделям. Можно заменить данными из вашей таблицы.</p>
+        </div>
+        <a href="#" class="text-sm underline text-white/70 hover:text-white">Скачать PDF со спецификациями</a>
+      </div>
+
+      <div class="mt-8 overflow-x-auto rounded-2xl border border-white/10">
+        <table class="min-w-[720px] w-full text-left text-white/80">
+          <thead class="bg-white/5 text-white/60 text-sm">
+            <tr>
+              <th class="px-4 py-3">Параметр</th>
+              <th class="px-4 py-3">SAMIK M365</th>
+              <th class="px-4 py-3">SAMIK V3 Max</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="odd:bg-white/5"><td class="px-4 py-3 text-white/70">Мощность</td><td class="px-4 py-3">350–500 Вт</td><td class="px-4 py-3">500 Вт</td></tr>
+            <tr class="odd:bg-white/5"><td class="px-4 py-3 text-white/70">Скорость</td><td class="px-4 py-3">до 35 км/ч</td><td class="px-4 py-3">до 45 км/ч</td></tr>
+            <tr class="odd:bg-white/5"><td class="px-4 py-3 text-white/70">Запас хода</td><td class="px-4 py-3">до 40 км</td><td class="px-4 py-3">до 80 км (PAS)</td></tr>
+            <tr class="odd:bg-white/5"><td class="px-4 py-3 text-white/70">Аккумулятор</td><td class="px-4 py-3">—</td><td class="px-4 py-3">18 Ah</td></tr>
+            <tr class="odd:bg-white/5"><td class="px-4 py-3 text-white/70">Тормоза</td><td class="px-4 py-3">дисковые + рекуп.</td><td class="px-4 py-3">дисковые</td></tr>
+            <tr class="odd:bg-white/5"><td class="px-4 py-3 text-white/70">Вес</td><td class="px-4 py-3">12–13 кг</td><td class="px-4 py-3">~18 кг</td></tr>
+            <tr class="odd:bg-white/5"><td class="px-4 py-3 text-white/70">Защита</td><td class="px-4 py-3">IP54</td><td class="px-4 py-3">IP54</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section id="gallery" class="py-16 bg-gradient-to-b from-black to-[#0a0a0a]">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="flex items-end justify-between flex-wrap gap-4">
+        <div>
+          <h2 class="text-3xl md:text-4xl font-bold">Галерея</h2>
+          <p class="text-white/70 mt-2">Добавьте реальные фото/рендеры самокатов и прикладные сцены.</p>
+        </div>
+        <button class="inline-flex items-center gap-2 rounded-xl px-4 py-2 border border-white/10 text-white hover:bg-white/5">▶ Смотри видео</button>
+      </div>
+      <div class="grid grid-cols-2 md:grid-cols-3 gap-3 mt-6">
+        <div class="aspect-[4/3] rounded-xl overflow-hidden bg-white/5 border border-white/10"><img src="/images/gallery/1.jpg" class="w-full h-full object-cover" alt="SAMIK gallery 1"></div>
+        <div class="aspect-[4/3] rounded-xl overflow-hidden bg-white/5 border border-white/10"><img src="/images/gallery/2.jpg" class="w-full h-full object-cover" alt="SAMIK gallery 2"></div>
+        <div class="aspect-[4/3] rounded-xl overflow-hidden bg-white/5 border border-white/10"><img src="/images/gallery/3.jpg" class="w-full h-full object-cover" alt="SAMIK gallery 3"></div>
+        <div class="aspect-[4/3] rounded-xl overflow-hidden bg-white/5 border border-white/10"><img src="/images/gallery/4.jpg" class="w-full h-full object-cover" alt="SAMIK gallery 4"></div>
+        <div class="aspect-[4/3] rounded-xl overflow-hidden bg-white/5 border border-white/10"><img src="/images/gallery/5.jpg" class="w-full h-full object-cover" alt="SAMIK gallery 5"></div>
+        <div class="aspect-[4/3] rounded-xl overflow-hidden bg-white/5 border border-white/10"><img src="/images/gallery/6.jpg" class="w-full h-full object-cover" alt="SAMIK gallery 6"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- REVIEWS -->
+  <section id="reviews" class="py-16 bg-[#0b0b0b] border-y border-white/10">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl md:text-4xl font-bold">Отзывы</h2>
+      <div class="grid md:grid-cols-3 gap-6 mt-6">
+        <div class="rounded-2xl border border-white/10 bg-black/40 p-5">
+          <div class="flex items-center gap-2 font-semibold">⭐ Анна</div>
+          <div class="mt-2 text-white/80 text-sm">Беру на работу каждый день. Лёгкий и быстрый, отличные тормоза.</div>
+          <div class="mt-3">⭐⭐⭐⭐⭐</div>
+        </div>
+        <div class="rounded-2xl border border-white/10 bg-black/40 p-5">
+          <div class="flex items-center gap-2 font-semibold">⭐ Дмитрий</div>
+          <div class="mt-2 text-white/80 text-sm">V3 Max тащит в горку без вопросов. Запаса хода хватает на весь день.</div>
+          <div class="mt-3">⭐⭐⭐⭐⭐</div>
+        </div>
+        <div class="rounded-2xl border border-white/10 bg-black/40 p-5">
+          <div class="flex items-center gap-2 font-semibold">⭐ Елена</div>
+          <div class="mt-2 text-white/80 text-sm">Крепкая рама, ничего не люфтит, сборка качественная.</div>
+          <div class="mt-3">⭐⭐⭐⭐</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" class="py-16 bg-black">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl md:text-4xl font-bold">Частые вопросы</h2>
+      <div class="mt-6 grid gap-3" id="faqList">
+        <!-- FAQ rows rendered by JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="py-16 bg-gradient-to-b from-[#0a0a0a] to-black">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 grid lg:grid-cols-2 gap-8 items-start">
+      <div>
+        <h2 class="text-3xl md:text-4xl font-bold">Свяжитесь с SAMIK</h2>
+        <p class="text-white/70 mt-2">Оставьте заявку — поможем выбрать модель, проконсультируем по аксессуарам и доставке.</p>
+        <div class="mt-6 space-y-3 text-white/80">
+          <div class="flex items-center gap-2">📞 +7 (000) 000-00-00</div>
+          <div class="flex items-center gap-2">✉️ sales@samik.store</div>
+          <div class="flex items-center gap-2">📍 Ваш город, пункт выдачи</div>
+          <div class="flex items-center gap-2">📷 @samik_official</div>
+          <div class="flex items-center gap-2">▶ YouTube SAMIK</div>
+        </div>
+      </div>
+      <form id="leadForm" class="rounded-2xl border border-white/10 bg-black/40 p-5 grid gap-4">
+        <div>
+          <label class="block text-sm text-white/70 mb-1">Имя</label>
+          <input name="name" class="w-full rounded-xl bg-black border border-white/10 px-3 py-2 text-white outline-none focus:border-white/30" placeholder="Ваше имя" required>
+        </div>
+        <div class="grid sm:grid-cols-2 gap-4">
+          <div>
+            <label class="block text-sm text-white/70 mb-1">Телефон</label>
+            <input name="phone" class="w-full rounded-xl bg-black border border-white/10 px-3 py-2 text-white outline-none focus:border-white/30" placeholder="+7 (___) ___-__-__" required>
+          </div>
+          <div>
+            <label class="block text-sm text-white/70 mb-1">Email</label>
+            <input type="email" name="email" class="w-full rounded-xl bg-black border border-white/10 px-3 py-2 text-white outline-none focus:border-white/30" placeholder="you@example.com">
+          </div>
+        </div>
+        <div>
+          <label class="block text-sm text-white/70 mb-1">Сообщение</label>
+          <textarea name="message" class="w-full rounded-xl bg-black border border-white/10 px-3 py-2 text-white outline-none focus:border-white/30" rows="4" placeholder="Какая модель интересует?"></textarea>
+        </div>
+        <button class="inline-flex items-center justify-center gap-2 rounded-xl px-5 py-3 bg-white text-black font-semibold hover:bg-white/90" type="submit">Отправить</button>
+        <div class="text-xs text-white/50">Нажимая «Отправить», вы соглашаетесь с обработкой персональных данных.</div>
+        <p id="formStatus" class="text-sm text-samik-green hidden">Спасибо! Мы свяжемся с вами.</p>
+      </form>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-white/10 bg-black">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8 grid md:grid-cols-3 gap-6 items-center">
+      <div>
+        <div class="text-xl font-extrabold text-samik-green">SAMIK</div>
+        <div class="text-xs text-white/60">© <span id="year"></span> SAMIK. Все права защищены.</div>
+      </div>
+      <div class="text-white/70 text-sm">Сделано с любовью к скорости и безопасности. Чёрный × зелёный — фирменный стиль.</div>
+      <div class="flex md:justify-end gap-3 text-sm">
+        <a href="#models" class="text-white/70 hover:text-white">Модели</a>
+        <a href="#features" class="text-white/70 hover:text-white">Преимущества</a>
+        <a href="#contact" class="text-white/70 hover:text-white">Контакты</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // мобильное меню
+    const menuBtn = document.getElementById('menuBtn');
+    const mobileNav = document.getElementById('mobileNav');
+    menuBtn.addEventListener('click', () => mobileNav.classList.toggle('hidden'));
+
+    // год в футере
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // FAQ
+    const faqs = [
+      { q: 'Можно ли ездить под дождём?', a: 'Модели имеют защиту IP54 — допускается мелкий дождь и брызги. Избегайте глубоких луж и мойки под давлением.' },
+      { q: 'Сколько служит батарея?', a: 'При бережном использовании 600–800 циклов. Есть сервис замены аккумуляторов.' },
+      { q: 'Какая гарантия?', a: 'Официальная гарантия SAMIK — 12 месяцев. Поддержка и запчасти доступны.' },
+      { q: 'Есть рассрочка?', a: 'Да, возможна рассрочка и покупка на маркетплейсах. Напишите нам в форму контактов.' },
+    ];
+    const faqList = document.getElementById('faqList');
+    faqs.forEach((item, i) => {
+      const wrap = document.createElement('div');
+      wrap.className = 'rounded-xl border border-white/10 overflow-hidden';
+      wrap.innerHTML = `
+        <button class="w-full flex items-center justify-between px-4 py-3 text-left bg-white/5 text-white" aria-expanded="${i===0}">
+          <span class="font-medium">${item.q}</span>
+          <span class="transition" data-ico>⌄</span>
+        </button>
+        <div class="px-4 py-3 text-white/80 bg-black/40 ${i===0 ? '' : 'hidden'}" data-body>${item.a}</div>
+      `;
+      const btn = wrap.querySelector('button');
+      const body = wrap.querySelector('[data-body]');
+      const ico  = wrap.querySelector('[data-ico]');
+      btn.addEventListener('click', () => {
+        const open = !body.classList.contains('hidden');
+        body.classList.toggle('hidden');
+        ico.style.transform = open ? 'rotate(0deg)' : 'rotate(180deg)';
+      });
+      faqList.appendChild(wrap);
+    });
+
+    // Форма — демо: перехватываем submit, показываем статус
+    const leadForm = document.getElementById('leadForm');
+    const statusEl = document.getElementById('formStatus');
+    leadForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      // Здесь подключите отправку в Telegram/почту/CRM через fetch() на ваш бэкенд
+      statusEl.classList.remove('hidden');
+      leadForm.reset();
+    });
+  </script>
+</body>
+</html>
